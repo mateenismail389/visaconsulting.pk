@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visa Consulting.pk — Gamca, Etimad, Navttc &amp; Visa Processing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece7db;
+    --paper-dark:#e2ddcd;
+    --card:#f8f6ef;
+    --ink:#1c2b3a;
+    --ink-soft:#4a5866;
+    --navy:#1c2b3a;
+    --teal:#155248;
+    --teal-dark:#0e3a33;
+    --brass:#a9772f;
+    --stamp:#8c3b2e;
+    --line:#c9c1ac;
+    --white:#fffdf8;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'IBM Plex Serif', serif;
+    color:var(--navy);
+    margin:0;
+    line-height:1.15;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  @media (max-width:640px){ .wrap{padding:0 18px;} }
+
+  /* Reduced motion respect */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(236,231,219,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Serif', serif;
+    font-weight:600; font-size:1.25rem;
+    color:var(--navy);
+    text-decoration:none;
+  }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    border:1.5px solid var(--stamp);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--stamp);
+    font-size:0.68rem; font-weight:700; font-family:'IBM Plex Serif',serif;
+    transform:rotate(-8deg);
+  }
+  nav.links{display:flex;gap:28px;align-items:center;}
+  nav.links a{
+    font-size:0.95rem; text-decoration:none; color:var(--ink-soft);
+    font-weight:500;
+  }
+  nav.links a:hover{color:var(--navy);}
+  .nav-cta{
+    background:var(--teal); color:var(--white);
+    padding:9px 18px; border-radius:var(--radius);
+    text-decoration:none; font-size:0.9rem; font-weight:600;
+  }
+  .menu-toggle{
+    display:none; background:none; border:none; cursor:pointer;
+    width:32px;height:24px; position:relative;
+  }
+  .menu-toggle span{
+    position:absolute; left:0; right:0; height:2px; background:var(--navy);
+  }
+  .menu-toggle span:nth-child(1){top:0;}
+  .menu-toggle span:nth-child(2){top:11px;}
+  .menu-toggle span:nth-child(3){top:22px;}
+
+  @media (max-width:800px){
+    nav.links{
+      position:fixed; inset:64px 0 0 0; background:var(--paper);
+      flex-direction:column; padding:32px 24px; gap:22px;
+      transform:translateX(100%); transition:transform .25s ease;
+      align-items:flex-start; overflow-y:auto;
+    }
+    nav.links.open{transform:translateX(0);}
+    nav.links a{font-size:1.1rem;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:64px 0 40px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+  }
+  .eyebrow-line{
+    display:flex; align-items:center; gap:10px;
+    color:var(--stamp); font-weight:600; font-size:0.85rem;
+    margin-bottom:16px;
+  }
+  .eyebrow-line .dash{width:22px;height:1px;background:var(--stamp);}
+  h1.headline{
+    font-size:2.7rem; font-weight:600; letter-spacing:-0.01em;
+  }
+  @media (max-width:640px){ h1.headline{font-size:2.1rem;} }
+  .headline em{font-style:normal; color:var(--teal);}
+  .sub{
+    margin-top:20px; font-size:1.08rem; color:var(--ink-soft); max-width:46ch;
+  }
+  .hero-actions{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:13px 24px; border-radius:var(--radius);
+    text-decoration:none; font-weight:600; font-size:0.95rem;
+    border:1.5px solid transparent;
+  }
+  .btn-primary{background:var(--teal); color:var(--white);}
+  .btn-primary:hover{background:var(--teal-dark);}
+  .btn-ghost{border-color:var(--navy); color:var(--navy);}
+  .btn-ghost:hover{background:var(--navy); color:var(--white);}
+
+  /* Voucher card */
+  .voucher{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    position:relative;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04);
+  }
+  .voucher-top{
+    padding:22px 24px 18px;
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:12px;
+  }
+  .voucher-top .ref{font-size:0.72rem; color:var(--ink-soft); letter-spacing:0.03em;}
+  .voucher-top .ref b{display:block; color:var(--navy); font-family:'IBM Plex Serif',serif; font-size:1rem;}
+  .stamp-badge{
+    width:64px;height:64px; border-radius:50%;
+    border:2px solid var(--stamp); color:var(--stamp);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'IBM Plex Serif', serif; font-weight:700; font-size:0.62rem;
+    line-height:1.15; transform:rotate(9deg); flex-shrink:0;
+  }
+  .perforation{
+    height:0; border-top:2px dashed var(--line); position:relative; margin:0 0;
+  }
+  .perforation::before,.perforation::after{
+    content:''; position:absolute; top:-9px; width:18px; height:18px;
+    background:var(--paper); border-radius:50%;
+  }
+  .perforation::before{left:-9px;}
+  .perforation::after{right:-9px;}
+  .voucher-body{padding:20px 24px 24px;}
+  .voucher-row{
+    display:flex; justify-content:space-between; padding:9px 0;
+    border-bottom:1px solid var(--line); font-size:0.9rem;
+  }
+  .voucher-row:last-child{border-bottom:none;}
+  .voucher-row span:first-child{color:var(--ink-soft);}
+  .voucher-row span:last-child{font-weight:600; color:var(--navy);}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:56px 0;}
+  .section-head{max-width:56ch; margin-bottom:36px;}
+  .section-head h2{font-size:1.9rem; font-weight:600;}
+  .section-head p{margin-top:12px; color:var(--ink-soft); font-size:1.02rem;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  @media (max-width:720px){ .services-grid{grid-template-columns:1fr;} }
+  .service{
+    background:var(--card); padding:28px 26px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .service-top{display:flex; align-items:center; gap:14px;}
+  .service-icon{
+    width:46px;height:46px; border-radius:50%;
+    border:1.5px solid var(--teal); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .service h3{font-size:1.18rem;}
+  .service .code{font-size:0.72rem; color:var(--brass); font-weight:600; letter-spacing:0.03em;}
+  .service p{color:var(--ink-soft); font-size:0.95rem;}
+  .service ul{margin:4px 0 0; padding-left:18px; color:var(--ink-soft); font-size:0.9rem;}
+  .service li{margin-bottom:4px;}
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    background:var(--navy); color:var(--white);
+  }
+  .process .section-head h2,.process .section-head p{color:var(--white);}
+  .process .section-head p{color:#c3cbd3;}
+  .steps{
+    display:flex; flex-direction:column; border-top:1px solid rgba(255,255,255,0.18);
+  }
+  .step{
+    display:grid; grid-template-columns:70px 1fr; gap:20px;
+    padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.18);
+    align-items:start;
+  }
+  .step .num{
+    font-family:'IBM Plex Serif', serif; font-size:1.6rem; color:var(--brass);
+    font-weight:600;
+  }
+  .step h3{color:var(--white); font-size:1.08rem; margin-bottom:6px;}
+  .step p{color:#c3cbd3; font-size:0.93rem; max-width:56ch;}
+  .step .tag{
+    display:inline-block; margin-top:8px; font-size:0.74rem; color:var(--brass);
+    border:1px solid var(--brass); padding:2px 8px; border-radius:20px;
+  }
+
+  /* ---------- TRUST / LEDGER ---------- */
+  .ledger{
+    background:var(--card); border:1px solid var(--line);
+  }
+  .ledger-row{
+    display:grid; grid-template-columns:1fr auto; gap:12px;
+    padding:16px 24px; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .label{color:var(--ink-soft); font-size:0.95rem;}
+  .ledger-row .value{font-family:'IBM Plex Serif',serif; font-weight:600; color:var(--teal); font-size:1.15rem;}
+  .note{
+    margin-top:14px; font-size:0.82rem; color:var(--ink-soft); font-style:italic;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    border-bottom:1px solid var(--line); padding:18px 0;
+  }
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; font-weight:600; color:var(--navy); font-size:1rem;
+    gap:16px;
+  }
+  .faq-q .plus{font-size:1.3rem; color:var(--teal); flex-shrink:0; transition:transform .2s ease;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .25s ease;
+    color:var(--ink-soft); font-size:0.94rem;
+  }
+  .faq-a-inner{padding-top:10px;}
+  .faq-item.open .faq-a{max-height:220px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+  }
+  @media (max-width:800px){ .contact-wrap{grid-template-columns:1fr;} }
+  .contact-card{
+    background:var(--card); border:1px solid var(--line); padding:26px;
+  }
+  .contact-card h3{font-size:1.1rem; margin-bottom:16px;}
+  .contact-line{
+    display:flex; justify-content:space-between; padding:10px 0;
+    border-bottom:1px solid var(--line); font-size:0.94rem;
+  }
+  .contact-line:last-child{border-bottom:none;}
+  .contact-line span:first-child{color:var(--ink-soft);}
+  .contact-line span:last-child{font-weight:600; color:var(--navy);}
+  .placeholder{color:var(--stamp) !important; font-style:italic; font-weight:500 !important;}
+
+  form.contact-form{display:flex; flex-direction:column; gap:14px;}
+  .contact-form label{font-size:0.85rem; color:var(--ink-soft); margin-bottom:5px; display:block;}
+  .contact-form input, .contact-form select, .contact-form textarea{
+    width:100%; padding:11px 12px; border:1px solid var(--line);
+    background:var(--white); font-family:inherit; font-size:0.95rem; color:var(--ink);
+    border-radius:var(--radius);
+  }
+  .contact-form textarea{resize:vertical; min-height:90px;}
+  .contact-form button{
+    align-self:flex-start; margin-top:4px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:28px 0; border-top:1px solid var(--line);
+    font-size:0.85rem; color:var(--ink-soft);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  .visually-hidden{position:absolute; width:1px;height:1px; overflow:hidden; clip:rect(0 0 0 0);}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:2px solid var(--teal); outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <span class="mark">VC</span>
+      Visa Consulting.pk
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Get started</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-line"><span class="dash"></span>Gulf travel documentation, done right</div>
+        <h1 class="headline">Your Gamca, Etimad, Navttc and visa file — <em>handled from one desk.</em></h1>
+        <p class="sub">We book your appointments, track your paperwork and follow up with the right offices, so your file moves forward without you having to chase it yourself.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start your file</a>
+          <a href="#services" class="btn btn-ghost">See services</a>
+        </div>
+      </div>
+
+      <div class="voucher">
+        <div class="voucher-top">
+          <div class="ref">
+            APPLICANT FILE
+            <b>Ready for processing</b>
+          </div>
+          <div class="stamp-badge">ON<br>TRACK</div>
+        </div>
+        <div class="perforation"></div>
+        <div class="voucher-body">
+          <div class="voucher-row"><span>Gamca medical</span><span>Appointment booked</span></div>
+          <div class="voucher-row"><span>Etimad biometric</span><span>Slot confirmed</span></div>
+          <div class="voucher-row"><span>Navttc test</span><span>Scheduled</span></div>
+          <div class="voucher-row"><span>Visa file</span><span>In process</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we take off your plate</h2>
+        <p>Four services that most often hold up a Gulf work visa file — each one booked, tracked and followed through until it's done.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+
+        <div class="service">
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.4"/></svg>
+            </div>
+            <div>
+              <div class="code">GAMCA</div>
+              <h3>Medical appointment booking</h3>
+            </div>
+          </div>
+          <p>We book your medical exam at a GAMCA-approved centre for the country you're travelling to, in the correct category for your visa type.</p>
+          <ul>
+            <li>Centre and slot selection</li>
+            <li>Correct fee category confirmed</li>
+            <li>Appointment slip delivered to you</li>
+          </ul>
+        </div>
+
+        <div class="service">
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21c-3-3-5-6-5-9a5 5 0 0 1 10 0c0 3-2 6-5 9Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="1.6" fill="currentColor"/></svg>
+            </div>
+            <div>
+              <div class="code">ETIMAD</div>
+              <h3>Biometric enrollment</h3>
+            </div>
+          </div>
+          <p>We book your Etimad biometric slot, confirm which documents to bring, and make sure your appointment lines up with the rest of your file.</p>
+          <ul>
+            <li>Slot booking and confirmation</li>
+            <li>Document checklist for the visit</li>
+            <li>Rescheduling if your dates shift</li>
+          </ul>
+        </div>
+
+        <div class="service">
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="code">NAVTTC</div>
+              <h3>Trade test &amp; certification</h3>
+            </div>
+          </div>
+          <p>For applicants travelling on skilled-trade categories, we register you for the NAVTTC test and guide you through to your certificate.</p>
+          <ul>
+            <li>Registration for your trade</li>
+            <li>Test date scheduling</li>
+            <li>Certificate collection support</li>
+          </ul>
+        </div>
+
+        <div class="service">
+          <div class="service-top">
+            <div class="service-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="code">VISA FILE</div>
+              <h3>End-to-end visa processing</h3>
+            </div>
+          </div>
+          <p>We review your documents, submit your application, track its status with the relevant office, and keep you updated until it's stamped.</p>
+          <ul>
+            <li>Document review before submission</li>
+            <li>Application tracking</li>
+            <li>Status updates until stamping</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How your file moves</h2>
+        <p>Most Gulf-bound applicants go through the same five stages. We handle the booking and follow-up at each one.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <div>
+            <h3>Document check</h3>
+            <p>Send us your passport copy, offer letter or sponsor details, and photographs. We tell you exactly what's missing, if anything.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <div>
+            <h3>Gamca appointment</h3>
+            <p>We book your medical exam at an approved centre and confirm the slip with you before your visit.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <div>
+            <h3>Etimad biometric</h3>
+            <p>Your biometric enrollment is booked and confirmed, timed to fit the rest of your file.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <div>
+            <h3>Navttc certification</h3>
+            <p>If your trade requires it, we register you for the test and follow through to your certificate.</p>
+            <span class="tag">Trade categories only</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">05</div>
+          <div>
+            <h3>Visa stamping</h3>
+            <p>Your file is submitted, tracked, and followed up until your visa is stamped and you're ready to travel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Why applicants work with us</h2>
+        <p>Built on hands-on experience with Gulf-based projects and the paperwork that surrounds them — not just office guesswork.</p>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row"><span class="label">Countries covered</span><span class="value">Saudi Arabia, UAE, Bahrain, Kuwait, Qatar</span></div>
+        <div class="ledger-row"><span class="label">Services under one file</span><span class="value">Gamca · Etimad · Navttc · Visa</span></div>
+        <div class="ledger-row"><span class="label">Based in</span><span class="value">Pakistan</span></div>
+      </div>
+      <p class="note">Replace the row above with your real client numbers and years in operation once you have them — accurate figures build more trust than round ones.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Common questions</h2>
+        <p>A few things applicants usually ask before starting their file.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><span>Do I need Navttc certification for every visa?</span><span class="plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">No. Navttc trade testing applies to skilled-trade categories specified by the employer or sponsor. We'll confirm whether it applies to your case before booking anything.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Which countries does Gamca cover?</span><span class="plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Gamca medical exams are required for applicants travelling to Gulf Cooperation Council countries. We book the appointment for the specific country and visa category on your file.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>What documents do I need to start?</span><span class="plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">A valid passport copy, your offer letter or sponsor details, and recent photographs are enough to begin. We'll list anything additional once we review your case.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>How do I track my file's status?</span><span class="plus">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">We update you at each stage — appointment booked, biometric done, certificate ready, visa stamped — so you always know where your file stands.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Start your file</h2>
+        <p>Send your details below, or reach us directly — whichever is easier for you.</p>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-card">
+          <h3>Reach us directly</h3>
+          <div class="contact-line"><span>WhatsApp</span><span>0315 6239082</span></div>
+          <div class="contact-line"><span>Email</span><span>mateenismail389@gmail.com</span></div>
+          <div class="contact-line"><span>Location</span><span>Pakistan</span></div>
+          <div class="contact-line"><span>Hours</span><span>8:00 AM – 9:00 PM, daily</span></div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Send your details</h3>
+          <form class="contact-form" id="whatsappForm">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" required>
+            </div>
+            <div>
+              <label for="phone">Phone or WhatsApp number</label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div>
+              <label for="service">Service needed</label>
+              <select id="service">
+                <option>Gamca medical appointment</option>
+                <option>Etimad biometric enrollment</option>
+                <option>Navttc certification</option>
+                <option>Visa processing</option>
+                <option>Not sure — guide me</option>
+              </select>
+            </div>
+            <div>
+              <label for="msg">Anything we should know</label>
+              <textarea id="msg" placeholder="Destination country, visa type, or your current stage"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
+            <p class="form-success" style="display:none; color:var(--teal); font-weight:600; font-size:0.92rem;">Opening WhatsApp with your details filled in — just hit send there.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; width:100%;">
+    <span>© <span id="year"></span> Visa Consulting.pk</span>
+    <span>Pakistan</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const WHATSAPP_NUMBER = '923156239082'; // 0315 6239082 in international format
+  const whatsappForm = document.getElementById('whatsappForm');
+  whatsappForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const msg = document.getElementById('msg').value.trim();
+
+    let text = `New enquiry from Visa Consulting.pk website\n`;
+    text += `Name: ${name}\n`;
+    text += `Phone: ${phone}\n`;
+    text += `Service: ${service}\n`;
+    if (msg) text += `Details: ${msg}`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+
+    whatsappForm.querySelector('.form-success').style.display = 'block';
+  });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
