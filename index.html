@@ -27,7 +27,9 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--paper);
+    background-color:var(--paper);
+    background-image:radial-gradient(var(--line) 1px, transparent 1px);
+    background-size:24px 24px;
     color:var(--ink);
     font-family:'IBM Plex Sans', sans-serif;
     font-size:16px;
@@ -58,6 +60,19 @@
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
+  .utility-bar{
+    background:linear-gradient(90deg, var(--navy), var(--teal-dark));
+  }
+  .utility-bar-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px; padding:7px 0; font-size:0.78rem; color:#c3cbd3;
+  }
+  .utility-bar-inner a{text-decoration:none; color:#fff; font-weight:600;}
+  .utility-bar-inner a:hover{color:var(--brass);}
+  .utility-sep{color:#8b97a3;}
+  @media (max-width:520px){
+    .utility-sep{display:none;}
+  }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 0;
@@ -70,12 +85,13 @@
     text-decoration:none;
   }
   .brand .mark{
-    width:30px;height:30px;border-radius:50%;
-    border:1.5px solid var(--stamp);
+    width:32px;height:32px;border-radius:50%;
+    background:linear-gradient(135deg, var(--teal), var(--navy));
     display:flex;align-items:center;justify-content:center;
-    color:var(--stamp);
-    font-size:0.68rem; font-weight:700; font-family:'IBM Plex Serif',serif;
+    color:#fff;
+    font-size:0.7rem; font-weight:700; font-family:'IBM Plex Serif',serif;
     transform:rotate(-8deg);
+    box-shadow:0 2px 6px rgba(21,82,72,0.35);
   }
   nav.links{display:flex;gap:28px;align-items:center;}
   nav.links a{
@@ -113,9 +129,26 @@
 
   /* ---------- HERO ---------- */
   .hero{
+    position:relative;
+    overflow:hidden;
     padding:64px 0 40px;
   }
+  .hero-decor{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+  }
+  .hero-decor .blob-teal{
+    position:absolute; top:-140px; right:-110px; width:440px; height:440px;
+    background:radial-gradient(circle, rgba(21,82,72,0.28), transparent 70%);
+    border-radius:50%;
+  }
+  .hero-decor .blob-brass{
+    position:absolute; bottom:-160px; left:-130px; width:380px; height:380px;
+    background:radial-gradient(circle, rgba(169,119,47,0.24), transparent 70%);
+    border-radius:50%;
+  }
+  .hero-decor svg{position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.5;}
   .hero-grid{
+    position:relative; z-index:1;
     display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
   }
   @media (max-width:860px){
@@ -152,7 +185,13 @@
     border:1px solid var(--line);
     border-radius:4px;
     position:relative;
-    box-shadow:0 1px 0 rgba(0,0,0,0.04);
+    box-shadow:0 8px 24px rgba(28,43,58,0.12);
+    overflow:hidden;
+  }
+  .voucher::before{
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:5px;
+    background:linear-gradient(90deg, var(--teal), var(--brass), var(--stamp));
   }
   .voucher-top{
     padding:22px 24px 18px;
@@ -188,6 +227,7 @@
 
   /* ---------- SECTION HEADS ---------- */
   section{padding:56px 0;}
+  .section-alt{background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .section-head{max-width:56ch; margin-bottom:36px;}
   .section-head h2{font-size:1.9rem; font-weight:600;}
   .section-head p{margin-top:12px; color:var(--ink-soft); font-size:1.02rem;}
@@ -241,7 +281,7 @@
 
   /* ---------- TRUST / LEDGER ---------- */
   .ledger{
-    background:var(--card); border:1px solid var(--line);
+    background:var(--white); border:1px solid var(--line);
   }
   .ledger-row{
     display:grid; grid-template-columns:1fr auto; gap:12px;
@@ -279,7 +319,7 @@
   }
   @media (max-width:800px){ .contact-wrap{grid-template-columns:1fr;} }
   .contact-card{
-    background:var(--card); border:1px solid var(--line); padding:26px;
+    background:var(--white); border:1px solid var(--line); padding:26px;
   }
   .contact-card h3{font-size:1.1rem; margin-bottom:16px;}
   .contact-line{
@@ -310,6 +350,32 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
 
+  /* ---------- FLOATING WHATSAPP BUTTON ---------- */
+  .whatsapp-float{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    width:58px; height:58px; border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);
+    text-decoration:none;
+  }
+  .whatsapp-float:hover{background:#1fb959;}
+  .whatsapp-float-ring{
+    position:absolute; inset:0; border-radius:50%;
+    border:2px solid #25D366;
+    animation:wa-pulse 2.2s ease-out infinite;
+  }
+  @keyframes wa-pulse{
+    0%{transform:scale(1); opacity:0.6;}
+    100%{transform:scale(1.6); opacity:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .whatsapp-float-ring{animation:none; display:none;}
+  }
+  @media (max-width:520px){
+    .whatsapp-float{width:52px; height:52px; right:16px; bottom:16px;}
+  }
+
   .visually-hidden{position:absolute; width:1px;height:1px; overflow:hidden; clip:rect(0 0 0 0);}
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
     outline:2px solid var(--teal); outline-offset:2px;
@@ -319,6 +385,12 @@
 <body>
 
 <header>
+  <div class="utility-bar">
+    <div class="wrap utility-bar-inner">
+      <a href="https://wa.me/923156239082" target="_blank" rel="noopener">WhatsApp: 0315 6239082</a>
+      <span class="utility-sep">8:00 AM – 9:00 PM, daily</span>
+    </div>
+  </div>
   <div class="wrap nav">
     <a href="#top" class="brand">
       <span class="mark">VC</span>
@@ -340,6 +412,15 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-decor" aria-hidden="true">
+      <div class="blob-teal"></div>
+      <div class="blob-brass"></div>
+      <svg viewBox="0 0 1080 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-20 340 C 220 260, 420 380, 640 240 S 1020 60, 1120 40" stroke="#155248" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" fill="none"/>
+        <circle cx="640" cy="240" r="4" fill="#a9772f"/>
+        <circle cx="220" cy="298" r="4" fill="#8c3b2e"/>
+      </svg>
+    </div>
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow-line"><span class="dash"></span>Gulf travel documentation, done right</div>
@@ -506,7 +587,7 @@
   </section>
 
   <!-- TRUST -->
-  <section id="about">
+  <section id="about" class="section-alt">
     <div class="wrap">
       <div class="section-head">
         <h2>Why applicants work with us</h2>
@@ -551,7 +632,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="section-alt">
     <div class="wrap">
       <div class="section-head">
         <h2>Start your file</h2>
@@ -608,6 +689,11 @@
     <span>Pakistan</span>
   </div>
 </footer>
+
+<a href="https://wa.me/923156239082?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20visa%20processing%20services." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17.5 6.5a7.7 7.7 0 0 0-11 0 7.6 7.6 0 0 0-1.1 9.4L4 21l5.3-1.4a7.7 7.7 0 0 0 3.7 1 7.7 7.7 0 0 0 7.7-7.7c0-2-.8-3.9-2.2-5.4Z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 9.3c0 3 2.7 5.7 5.7 5.7.6 0 1-.5.9-1l-.2-1a.9.9 0 0 0-.8-.7l-1.3-.2c-.3 0-.6 0-.8.3l-.4.5a4.6 4.6 0 0 1-2-2l.5-.4c.2-.2.3-.5.3-.8l-.2-1.3a.9.9 0 0 0-.7-.8l-1-.2c-.5-.1-1 .3-1 .9Z" fill="#fff"/></svg>
+  <span class="whatsapp-float-ring"></span>
+</a>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
