@@ -9,18 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#ece7db;
-    --paper-dark:#e2ddcd;
-    --card:#f8f6ef;
-    --ink:#1c2b3a;
-    --ink-soft:#4a5866;
-    --navy:#1c2b3a;
-    --teal:#155248;
-    --teal-dark:#0e3a33;
-    --brass:#a9772f;
-    --stamp:#8c3b2e;
-    --line:#c9c1ac;
-    --white:#fffdf8;
+    --paper:#eef3f8;
+    --paper-dark:#e2ebf3;
+    --card:#ffffff;
+    --ink:#12233a;
+    --ink-soft:#51677f;
+    --navy:#123a63;
+    --teal:#2fa84f;
+    --teal-dark:#1f7a39;
+    --brass:#2fa84f;
+    --stamp:#123a63;
+    --line:#d3dee8;
+    --white:#ffffff;
     --radius:2px;
   }
   *{box-sizing:border-box;}
@@ -86,12 +86,9 @@
   }
   .brand .mark{
     width:32px;height:32px;border-radius:50%;
-    background:linear-gradient(135deg, var(--teal), var(--navy));
     display:flex;align-items:center;justify-content:center;
-    color:#fff;
-    font-size:0.7rem; font-weight:700; font-family:'IBM Plex Serif',serif;
-    transform:rotate(-8deg);
-    box-shadow:0 2px 6px rgba(21,82,72,0.35);
+    box-shadow:0 2px 6px rgba(18,58,99,0.35);
+    overflow:hidden;
   }
   nav.links{display:flex;gap:28px;align-items:center;}
   nav.links a{
@@ -147,6 +144,9 @@
     border-radius:50%;
   }
   .hero-decor svg{position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.5;}
+  .hero-decor svg.skyline{
+    top:auto; bottom:0; height:90px; opacity:0.08;
+  }
   .hero-grid{
     position:relative; z-index:1;
     display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
@@ -393,7 +393,13 @@
   </div>
   <div class="wrap nav">
     <a href="#top" class="brand">
-      <span class="mark">VC</span>
+      <span class="mark">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="15" fill="#123a63"/>
+          <path d="M4 20c4 5 20 5 24 0" stroke="#2fa84f" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+          <path d="M9 8l16 6-6 2-2 6-3-7-8-3.5Z" fill="#fff"/>
+        </svg>
+      </span>
       Visa Consulting.pk
     </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -416,9 +422,20 @@
       <div class="blob-teal"></div>
       <div class="blob-brass"></div>
       <svg viewBox="0 0 1080 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M-20 340 C 220 260, 420 380, 640 240 S 1020 60, 1120 40" stroke="#155248" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" fill="none"/>
-        <circle cx="640" cy="240" r="4" fill="#a9772f"/>
-        <circle cx="220" cy="298" r="4" fill="#8c3b2e"/>
+        <path d="M-20 340 C 220 260, 420 380, 640 240 S 1020 60, 1120 40" stroke="#2fa84f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" fill="none"/>
+        <circle cx="640" cy="240" r="4" fill="#123a63"/>
+        <circle cx="220" cy="298" r="4" fill="#2fa84f"/>
+      </svg>
+      <svg class="skyline" viewBox="0 0 1080 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="70" width="40" height="70" fill="#123a63"/>
+        <rect x="46" y="40" width="30" height="100" fill="#123a63"/>
+        <rect x="82" y="85" width="26" height="55" fill="#123a63"/>
+        <polygon points="130,140 130,20 145,0 160,20 160,140" fill="#123a63"/>
+        <rect x="176" y="60" width="34" height="80" fill="#123a63"/>
+        <rect x="900" y="75" width="30" height="65" fill="#123a63"/>
+        <rect x="936" y="45" width="24" height="95" fill="#123a63"/>
+        <polygon points="980,140 980,10 995,-6 1010,10 1010,140" fill="#123a63"/>
+        <rect x="1030" y="65" width="30" height="75" fill="#123a63"/>
       </svg>
     </div>
     <div class="wrap hero-grid">
