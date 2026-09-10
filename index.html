@@ -178,6 +178,7 @@
   .btn-primary:hover{background:var(--teal-dark);}
   .btn-ghost{border-color:var(--navy); color:var(--navy);}
   .btn-ghost:hover{background:var(--navy); color:var(--white);}
+  .btn-icon{display:inline-flex; align-items:center; gap:8px;}
 
   /* Voucher card */
   .voucher{
@@ -318,8 +319,25 @@
     display:grid; grid-template-columns:1fr 1fr; gap:40px;
   }
   @media (max-width:800px){ .contact-wrap{grid-template-columns:1fr;} }
+  .enquiry-section{
+    border-top:none;
+    position:relative;
+  }
+  .enquiry-section::before{
+    content:'';
+    display:block; height:4px;
+    background:linear-gradient(90deg, var(--navy), var(--teal));
+  }
   .contact-card{
     background:var(--white); border:1px solid var(--line); padding:26px;
+    border-radius:6px;
+  }
+  .enquiry-section .contact-card{
+    box-shadow:0 10px 26px rgba(18,58,99,0.10);
+  }
+  .enquiry-section #whatsappForm{
+    border-left:4px solid var(--teal);
+    padding-left:18px;
   }
   .contact-card h3{font-size:1.1rem; margin-bottom:16px;}
   .contact-line{
@@ -463,6 +481,224 @@
           <div class="voucher-row"><span>Etimad biometric</span><span>Slot confirmed</span></div>
           <div class="voucher-row"><span>Navttc test</span><span>Scheduled</span></div>
           <div class="voucher-row"><span>Visa file</span><span>In process</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-alt enquiry-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-line"><span class="dash"></span>Quick enquiry</span>
+        <h2>Start your file today</h2>
+        <p>Fill in your details below and we'll pick it up on WhatsApp — or reach us directly.</p>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-card">
+          <h3>Reach us directly</h3>
+          <div class="contact-line"><span>WhatsApp</span><span>0315 6239082</span></div>
+          <div class="contact-line"><span>Email</span><span>mateenismail389@gmail.com</span></div>
+          <div class="contact-line"><span>Location</span><span>Pakistan</span></div>
+          <div class="contact-line"><span>Hours</span><span>8:00 AM – 9:00 PM, daily</span></div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Send your details</h3>
+          <form class="contact-form" id="whatsappForm">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" required>
+            </div>
+            <div>
+              <label for="phone">Phone or WhatsApp number</label>
+              <input type="tel" id="phone" required>
+            </div>
+            <div>
+              <label for="country">Destination country</label>
+              <select id="country">
+                <option>Saudi Arabia</option>
+                <option>UAE</option>
+                <option>Bahrain</option>
+                <option>Kuwait</option>
+                <option>Qatar</option>
+              </select>
+            </div>
+            <div>
+              <label for="service">Service needed</label>
+              <select id="service">
+                <option>Gamca medical appointment</option>
+                <option>Etimad biometric enrollment</option>
+                <option>Navttc / Takamol skill test</option>
+                <option>Visa processing</option>
+                <option>Not sure — guide me</option>
+              </select>
+            </div>
+            <div>
+              <label for="trade">Takamol / Navttc skill test trade</label>
+              <select id="trade">
+                <option value="">Not applicable</option>
+                <optgroup label="Civil & Construction">
+                  <option>Blacksmith</option>
+                  <option>Blacksmithing</option>
+                  <option>Builder</option>
+                  <option>Carpenter</option>
+                  <option>Carpentry</option>
+                  <option>Concrete Finisher</option>
+                  <option>Constructing Worker</option>
+                  <option>Construction & Building</option>
+                  <option>Construction Formwork</option>
+                  <option>Construction Worker</option>
+                  <option>Drilling and Excavating</option>
+                  <option>Drilling Worker</option>
+                  <option>Furniture Assembling Worker</option>
+                  <option>Furniture Carpenter</option>
+                  <option>Gypsum Worker</option>
+                  <option>Load & Unload Worker</option>
+                  <option>Mining</option>
+                  <option>Painting / Painter</option>
+                  <option>Plasterer</option>
+                  <option>Plastering</option>
+                  <option>Road Maintenance Worker</option>
+                  <option>Scaffold Labourer</option>
+                  <option>Stone Mason</option>
+                  <option>Stone Crusher</option>
+                  <option>Tile Setter</option>
+                  <option>Unique Operations Worker</option>
+                </optgroup>
+                <optgroup label="Mechanical">
+                  <option>Automated – Mechanised Arc Weld</option>
+                  <option>CNC Machine Operator</option>
+                  <option>CNC Machinist</option>
+                  <option>Fitting and Assembly Technician</option>
+                  <option>Heavy Equipment Technician</option>
+                  <option>HVAC Mechanic</option>
+                  <option>Machine Operator</option>
+                  <option>Machine Tool Setting Technician</option>
+                  <option>Machinery Maintenance Technician</option>
+                  <option>Machinist</option>
+                  <option>Manual Welder</option>
+                  <option>Manufacture and Processing of Metals</option>
+                  <option>Manufacturing Officer</option>
+                  <option>Mechanical Craftman</option>
+                  <option>Mechanical Technician</option>
+                  <option>Pipe and Boiler Installer</option>
+                  <option>Pipe and Tube Fabricator</option>
+                  <option>Pipe Fitting and Assembly Technician</option>
+                  <option>Pipe Installer</option>
+                  <option>Plate Welder (3 mm and above)</option>
+                  <option>Plumber</option>
+                  <option>Plumbing</option>
+                  <option>Production Assembly Technician</option>
+                  <option>Sheet Metalworker (Less than 3 mm)</option>
+                  <option>Structural Steelworker</option>
+                  <option>Welding</option>
+                  <option>Welding Assistant</option>
+                  <option>Workshop Worker</option>
+                </optgroup>
+                <optgroup label="Electrical">
+                  <option>Building Electrician</option>
+                  <option>Electrical Craftman</option>
+                  <option>Electrical Mechanic</option>
+                  <option>Electrical Technician</option>
+                  <option>Electrician</option>
+                  <option>Hard Facility Maintenance – Build</option>
+                  <option>Hard Facility Maintenance – Craft</option>
+                  <option>Hard Facility Maintenance – Fitter</option>
+                  <option>Hard Facility Maintenance – Lead</option>
+                  <option>Power Line Operator</option>
+                </optgroup>
+                <optgroup label="Electronics">
+                  <option>Communications & Electronics / Electronic Telecom</option>
+                  <option>Electrical Device Maintenance</option>
+                  <option>Instrumentation & Control Craftman</option>
+                  <option>Instrumentation & Control Technician</option>
+                  <option>Power Cable Connector</option>
+                </optgroup>
+                <optgroup label="Automotive">
+                  <option>Auto Electrician</option>
+                  <option>Auto Mechanic</option>
+                  <option>Auto Plumber</option>
+                  <option>Automotive Primary Service</option>
+                  <option>Car Body Repair</option>
+                  <option>Mechanical (Automotive)</option>
+                </optgroup>
+                <optgroup label="Driving">
+                  <option>Bus Driver</option>
+                  <option>Car Driver</option>
+                  <option>Heavy Truck Driver</option>
+                  <option>Mini Truck Driver</option>
+                  <option>Motorbike / Motorcycle Driver</option>
+                  <option>Taxi Driver</option>
+                  <option>Trailer Truck Driver</option>
+                  <option>Transport Bike Worker</option>
+                  <option>Truck Driver</option>
+                </optgroup>
+                <optgroup label="Culinary Arts & Food">
+                  <option>Baker</option>
+                  <option>Barista</option>
+                  <option>Butcher</option>
+                  <option>Chef</option>
+                  <option>Fast Food Maker</option>
+                  <option>Food and Beverages</option>
+                  <option>Kitchen Helper / Worker</option>
+                </optgroup>
+                <optgroup label="Cleaning Services">
+                  <option>Garden Cleaning Worker</option>
+                  <option>Hospital Cleaner</option>
+                  <option>Offices and Facilities Cleaning Worker</option>
+                  <option>Roof Cleaner</option>
+                  <option>Street Cleaner</option>
+                </optgroup>
+                <optgroup label="Packaging & Store Keeping">
+                  <option>Labeling Worker</option>
+                  <option>Packaging Worker</option>
+                  <option>Packing the Shelves Worker</option>
+                  <option>Warehouse Worker</option>
+                </optgroup>
+                <optgroup label="Sales & Customer Service">
+                  <option>Gas Station Attendant</option>
+                  <option>Seller</option>
+                </optgroup>
+                <optgroup label="Beauty & Personal Care">
+                  <option>Barber</option>
+                  <option>Hair Dresser</option>
+                  <option>Nail Care Specialist</option>
+                </optgroup>
+                <optgroup label="Health & Safety">
+                  <option>HSE Advisor</option>
+                </optgroup>
+                <optgroup label="Hospitality">
+                  <option>Laundryman</option>
+                </optgroup>
+                <optgroup label="Fashion & Tailoring">
+                  <option>Tailor</option>
+                </optgroup>
+              </select>
+            </div>
+            <div>
+              <label for="tasheerCentre">Preferred Tasheer / Etimad centre</label>
+              <select id="tasheerCentre">
+                <option value="">Not applicable</option>
+                <option>Islamabad</option>
+                <option>Rawalpindi</option>
+                <option>Lahore</option>
+                <option>Karachi</option>
+                <option>Peshawar</option>
+                <option>Quetta</option>
+              </select>
+            </div>
+            <div>
+              <label for="msg">Anything we should know</label>
+              <textarea id="msg" placeholder="Destination country, visa type, or your current stage"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.5 6.5a7.7 7.7 0 0 0-11 0 7.6 7.6 0 0 0-1.1 9.4L4 21l5.3-1.4a7.7 7.7 0 0 0 3.7 1 7.7 7.7 0 0 0 7.7-7.7c0-2-.8-3.9-2.2-5.4Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              Send on WhatsApp
+            </button>
+            <p class="form-success" style="display:none; color:var(--teal); font-weight:600; font-size:0.92rem;">Opening WhatsApp with your details filled in — just hit send there.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -648,55 +884,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section-alt">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Start your file</h2>
-        <p>Send your details below, or reach us directly — whichever is easier for you.</p>
-      </div>
 
-      <div class="contact-wrap">
-        <div class="contact-card">
-          <h3>Reach us directly</h3>
-          <div class="contact-line"><span>WhatsApp</span><span>0315 6239082</span></div>
-          <div class="contact-line"><span>Email</span><span>mateenismail389@gmail.com</span></div>
-          <div class="contact-line"><span>Location</span><span>Pakistan</span></div>
-          <div class="contact-line"><span>Hours</span><span>8:00 AM – 9:00 PM, daily</span></div>
-        </div>
-
-        <div class="contact-card">
-          <h3>Send your details</h3>
-          <form class="contact-form" id="whatsappForm">
-            <div>
-              <label for="name">Full name</label>
-              <input type="text" id="name" required>
-            </div>
-            <div>
-              <label for="phone">Phone or WhatsApp number</label>
-              <input type="tel" id="phone" required>
-            </div>
-            <div>
-              <label for="service">Service needed</label>
-              <select id="service">
-                <option>Gamca medical appointment</option>
-                <option>Etimad biometric enrollment</option>
-                <option>Navttc certification</option>
-                <option>Visa processing</option>
-                <option>Not sure — guide me</option>
-              </select>
-            </div>
-            <div>
-              <label for="msg">Anything we should know</label>
-              <textarea id="msg" placeholder="Destination country, visa type, or your current stage"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
-            <p class="form-success" style="display:none; color:var(--teal); font-weight:600; font-size:0.92rem;">Opening WhatsApp with your details filled in — just hit send there.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
 
 </main>
 
@@ -732,13 +920,19 @@
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const country = document.getElementById('country').value;
     const service = document.getElementById('service').value;
+    const trade = document.getElementById('trade').value;
+    const tasheerCentre = document.getElementById('tasheerCentre').value;
     const msg = document.getElementById('msg').value.trim();
 
     let text = `New enquiry from Visa Consulting.pk website\n`;
     text += `Name: ${name}\n`;
     text += `Phone: ${phone}\n`;
+    text += `Country: ${country}\n`;
     text += `Service: ${service}\n`;
+    if (trade) text += `Trade / Skill test: ${trade}\n`;
+    if (tasheerCentre) text += `Preferred Tasheer centre: ${tasheerCentre}\n`;
     if (msg) text += `Details: ${msg}`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
