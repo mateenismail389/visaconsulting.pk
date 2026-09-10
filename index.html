@@ -357,6 +357,9 @@
     border-radius:var(--radius);
   }
   .contact-form textarea{resize:vertical; min-height:90px;}
+  .conditional-field{display:none;}
+  .conditional-field.active{display:flex; flex-direction:column; gap:14px;}
+  .conditional-field > div{display:flex; flex-direction:column;}
   .contact-form button{
     align-self:flex-start; margin-top:4px;
   }
@@ -528,170 +531,210 @@
             <div>
               <label for="service">Service needed</label>
               <select id="service">
-                <option>Gamca medical appointment</option>
-                <option>Etimad biometric enrollment</option>
-                <option>Navttc / Takamol skill test</option>
-                <option>Visa processing</option>
-                <option>Not sure — guide me</option>
+                <option value="gamca">Gamca medical appointment</option>
+                <option value="etimad">Etimad biometric enrollment</option>
+                <option value="navttc">Navttc / Takamol skill test</option>
+                <option value="visa">Visa processing</option>
+                <option value="unsure">Not sure — guide me</option>
               </select>
             </div>
-            <div>
-              <label for="trade">Takamol / Navttc skill test trade</label>
-              <select id="trade">
-                <option value="">Not applicable</option>
-                <optgroup label="Civil & Construction">
-                  <option>Blacksmith</option>
-                  <option>Blacksmithing</option>
-                  <option>Builder</option>
-                  <option>Carpenter</option>
-                  <option>Carpentry</option>
-                  <option>Concrete Finisher</option>
-                  <option>Constructing Worker</option>
-                  <option>Construction & Building</option>
-                  <option>Construction Formwork</option>
-                  <option>Construction Worker</option>
-                  <option>Drilling and Excavating</option>
-                  <option>Drilling Worker</option>
-                  <option>Furniture Assembling Worker</option>
-                  <option>Furniture Carpenter</option>
-                  <option>Gypsum Worker</option>
-                  <option>Load & Unload Worker</option>
-                  <option>Mining</option>
-                  <option>Painting / Painter</option>
-                  <option>Plasterer</option>
-                  <option>Plastering</option>
-                  <option>Road Maintenance Worker</option>
-                  <option>Scaffold Labourer</option>
-                  <option>Stone Mason</option>
-                  <option>Stone Crusher</option>
-                  <option>Tile Setter</option>
-                  <option>Unique Operations Worker</option>
-                </optgroup>
-                <optgroup label="Mechanical">
-                  <option>Automated – Mechanised Arc Weld</option>
-                  <option>CNC Machine Operator</option>
-                  <option>CNC Machinist</option>
-                  <option>Fitting and Assembly Technician</option>
-                  <option>Heavy Equipment Technician</option>
-                  <option>HVAC Mechanic</option>
-                  <option>Machine Operator</option>
-                  <option>Machine Tool Setting Technician</option>
-                  <option>Machinery Maintenance Technician</option>
-                  <option>Machinist</option>
-                  <option>Manual Welder</option>
-                  <option>Manufacture and Processing of Metals</option>
-                  <option>Manufacturing Officer</option>
-                  <option>Mechanical Craftman</option>
-                  <option>Mechanical Technician</option>
-                  <option>Pipe and Boiler Installer</option>
-                  <option>Pipe and Tube Fabricator</option>
-                  <option>Pipe Fitting and Assembly Technician</option>
-                  <option>Pipe Installer</option>
-                  <option>Plate Welder (3 mm and above)</option>
-                  <option>Plumber</option>
-                  <option>Plumbing</option>
-                  <option>Production Assembly Technician</option>
-                  <option>Sheet Metalworker (Less than 3 mm)</option>
-                  <option>Structural Steelworker</option>
-                  <option>Welding</option>
-                  <option>Welding Assistant</option>
-                  <option>Workshop Worker</option>
-                </optgroup>
-                <optgroup label="Electrical">
-                  <option>Building Electrician</option>
-                  <option>Electrical Craftman</option>
-                  <option>Electrical Mechanic</option>
-                  <option>Electrical Technician</option>
-                  <option>Electrician</option>
-                  <option>Hard Facility Maintenance – Build</option>
-                  <option>Hard Facility Maintenance – Craft</option>
-                  <option>Hard Facility Maintenance – Fitter</option>
-                  <option>Hard Facility Maintenance – Lead</option>
-                  <option>Power Line Operator</option>
-                </optgroup>
-                <optgroup label="Electronics">
-                  <option>Communications & Electronics / Electronic Telecom</option>
-                  <option>Electrical Device Maintenance</option>
-                  <option>Instrumentation & Control Craftman</option>
-                  <option>Instrumentation & Control Technician</option>
-                  <option>Power Cable Connector</option>
-                </optgroup>
-                <optgroup label="Automotive">
-                  <option>Auto Electrician</option>
-                  <option>Auto Mechanic</option>
-                  <option>Auto Plumber</option>
-                  <option>Automotive Primary Service</option>
-                  <option>Car Body Repair</option>
-                  <option>Mechanical (Automotive)</option>
-                </optgroup>
-                <optgroup label="Driving">
-                  <option>Bus Driver</option>
-                  <option>Car Driver</option>
-                  <option>Heavy Truck Driver</option>
-                  <option>Mini Truck Driver</option>
-                  <option>Motorbike / Motorcycle Driver</option>
-                  <option>Taxi Driver</option>
-                  <option>Trailer Truck Driver</option>
-                  <option>Transport Bike Worker</option>
-                  <option>Truck Driver</option>
-                </optgroup>
-                <optgroup label="Culinary Arts & Food">
-                  <option>Baker</option>
-                  <option>Barista</option>
-                  <option>Butcher</option>
-                  <option>Chef</option>
-                  <option>Fast Food Maker</option>
-                  <option>Food and Beverages</option>
-                  <option>Kitchen Helper / Worker</option>
-                </optgroup>
-                <optgroup label="Cleaning Services">
-                  <option>Garden Cleaning Worker</option>
-                  <option>Hospital Cleaner</option>
-                  <option>Offices and Facilities Cleaning Worker</option>
-                  <option>Roof Cleaner</option>
-                  <option>Street Cleaner</option>
-                </optgroup>
-                <optgroup label="Packaging & Store Keeping">
-                  <option>Labeling Worker</option>
-                  <option>Packaging Worker</option>
-                  <option>Packing the Shelves Worker</option>
-                  <option>Warehouse Worker</option>
-                </optgroup>
-                <optgroup label="Sales & Customer Service">
-                  <option>Gas Station Attendant</option>
-                  <option>Seller</option>
-                </optgroup>
-                <optgroup label="Beauty & Personal Care">
-                  <option>Barber</option>
-                  <option>Hair Dresser</option>
-                  <option>Nail Care Specialist</option>
-                </optgroup>
-                <optgroup label="Health & Safety">
-                  <option>HSE Advisor</option>
-                </optgroup>
-                <optgroup label="Hospitality">
-                  <option>Laundryman</option>
-                </optgroup>
-                <optgroup label="Fashion & Tailoring">
-                  <option>Tailor</option>
-                </optgroup>
-              </select>
-            </div>
-            <div>
-              <label for="tasheerCentre">Preferred Tasheer / Etimad centre</label>
-              <select id="tasheerCentre">
-                <option value="">Not applicable</option>
+
+            <div id="gamcaFields" class="conditional-field">
+              <label for="gamcaCentre">Preferred Gamca city / centre</label>
+              <select id="gamcaCentre">
+                <option value="">Select a city</option>
+                <option>Karachi</option>
+                <option>Lahore</option>
                 <option>Islamabad</option>
                 <option>Rawalpindi</option>
-                <option>Lahore</option>
-                <option>Karachi</option>
+                <option>Multan</option>
+                <option>Faisalabad</option>
+                <option>Gujranwala</option>
+                <option>Sialkot</option>
                 <option>Peshawar</option>
                 <option>Quetta</option>
               </select>
             </div>
+
+            <div id="etimadFields" class="conditional-field">
+              <label for="tasheerCentre">Preferred Tasheer / Etimad centre</label>
+              <select id="tasheerCentre">
+                <option value="">Select a centre</option>
+                <option>Islamabad</option>
+                <option>Rawalpindi</option>
+                <option>Lahore</option>
+                <option>Karachi</option>
+                <option>Multan</option>
+                <option>Peshawar</option>
+                <option>Quetta</option>
+              </select>
+            </div>
+
+            <div id="navttcFields" class="conditional-field">
+              <div>
+                <label for="navttcCentre">Preferred Navttc / Takamol test centre</label>
+                <select id="navttcCentre">
+                  <option value="">Select a city</option>
+                  <option>Lahore</option>
+                  <option>Karachi</option>
+                  <option>Islamabad</option>
+                  <option>Rawalpindi</option>
+                  <option>Multan</option>
+                  <option>Faisalabad</option>
+                  <option>Gujranwala</option>
+                  <option>Gujrat</option>
+                  <option>Sialkot</option>
+                  <option>Peshawar</option>
+                  <option>Quetta</option>
+                </select>
+              </div>
+              <div>
+                <label for="trade">Takamol / Navttc skill test trade</label>
+                <select id="trade">
+                  <option value="">Select a trade</option>
+                  <optgroup label="Civil & Construction">
+                    <option>Blacksmith</option>
+                    <option>Blacksmithing</option>
+                    <option>Builder</option>
+                    <option>Carpenter</option>
+                    <option>Carpentry</option>
+                    <option>Concrete Finisher</option>
+                    <option>Constructing Worker</option>
+                    <option>Construction & Building</option>
+                    <option>Construction Formwork</option>
+                    <option>Construction Worker</option>
+                    <option>Drilling and Excavating</option>
+                    <option>Drilling Worker</option>
+                    <option>Furniture Assembling Worker</option>
+                    <option>Furniture Carpenter</option>
+                    <option>Gypsum Worker</option>
+                    <option>Load & Unload Worker</option>
+                    <option>Mining</option>
+                    <option>Painting / Painter</option>
+                    <option>Plasterer</option>
+                    <option>Plastering</option>
+                    <option>Road Maintenance Worker</option>
+                    <option>Scaffold Labourer</option>
+                    <option>Stone Mason</option>
+                    <option>Stone Crusher</option>
+                    <option>Tile Setter</option>
+                    <option>Unique Operations Worker</option>
+                  </optgroup>
+                  <optgroup label="Mechanical">
+                    <option>Automated – Mechanised Arc Weld</option>
+                    <option>CNC Machine Operator</option>
+                    <option>CNC Machinist</option>
+                    <option>Fitting and Assembly Technician</option>
+                    <option>Heavy Equipment Technician</option>
+                    <option>HVAC Mechanic</option>
+                    <option>Machine Operator</option>
+                    <option>Machine Tool Setting Technician</option>
+                    <option>Machinery Maintenance Technician</option>
+                    <option>Machinist</option>
+                    <option>Manual Welder</option>
+                    <option>Manufacture and Processing of Metals</option>
+                    <option>Manufacturing Officer</option>
+                    <option>Mechanical Craftman</option>
+                    <option>Mechanical Technician</option>
+                    <option>Pipe and Boiler Installer</option>
+                    <option>Pipe and Tube Fabricator</option>
+                    <option>Pipe Fitting and Assembly Technician</option>
+                    <option>Pipe Installer</option>
+                    <option>Plate Welder (3 mm and above)</option>
+                    <option>Plumber</option>
+                    <option>Plumbing</option>
+                    <option>Production Assembly Technician</option>
+                    <option>Sheet Metalworker (Less than 3 mm)</option>
+                    <option>Structural Steelworker</option>
+                    <option>Welding</option>
+                    <option>Welding Assistant</option>
+                    <option>Workshop Worker</option>
+                  </optgroup>
+                  <optgroup label="Electrical">
+                    <option>Building Electrician</option>
+                    <option>Electrical Craftman</option>
+                    <option>Electrical Mechanic</option>
+                    <option>Electrical Technician</option>
+                    <option>Electrician</option>
+                    <option>Hard Facility Maintenance – Build</option>
+                    <option>Hard Facility Maintenance – Craft</option>
+                    <option>Hard Facility Maintenance – Fitter</option>
+                    <option>Hard Facility Maintenance – Lead</option>
+                    <option>Power Line Operator</option>
+                  </optgroup>
+                  <optgroup label="Electronics">
+                    <option>Communications & Electronics / Electronic Telecom</option>
+                    <option>Electrical Device Maintenance</option>
+                    <option>Instrumentation & Control Craftman</option>
+                    <option>Instrumentation & Control Technician</option>
+                    <option>Power Cable Connector</option>
+                  </optgroup>
+                  <optgroup label="Automotive">
+                    <option>Auto Electrician</option>
+                    <option>Auto Mechanic</option>
+                    <option>Auto Plumber</option>
+                    <option>Automotive Primary Service</option>
+                    <option>Car Body Repair</option>
+                    <option>Mechanical (Automotive)</option>
+                  </optgroup>
+                  <optgroup label="Driving">
+                    <option>Bus Driver</option>
+                    <option>Car Driver</option>
+                    <option>Heavy Truck Driver</option>
+                    <option>Mini Truck Driver</option>
+                    <option>Motorbike / Motorcycle Driver</option>
+                    <option>Taxi Driver</option>
+                    <option>Trailer Truck Driver</option>
+                    <option>Transport Bike Worker</option>
+                    <option>Truck Driver</option>
+                  </optgroup>
+                  <optgroup label="Culinary Arts & Food">
+                    <option>Baker</option>
+                    <option>Barista</option>
+                    <option>Butcher</option>
+                    <option>Chef</option>
+                    <option>Fast Food Maker</option>
+                    <option>Food and Beverages</option>
+                    <option>Kitchen Helper / Worker</option>
+                  </optgroup>
+                  <optgroup label="Cleaning Services">
+                    <option>Garden Cleaning Worker</option>
+                    <option>Hospital Cleaner</option>
+                    <option>Offices and Facilities Cleaning Worker</option>
+                    <option>Roof Cleaner</option>
+                    <option>Street Cleaner</option>
+                  </optgroup>
+                  <optgroup label="Packaging & Store Keeping">
+                    <option>Labeling Worker</option>
+                    <option>Packaging Worker</option>
+                    <option>Packing the Shelves Worker</option>
+                    <option>Warehouse Worker</option>
+                  </optgroup>
+                  <optgroup label="Sales & Customer Service">
+                    <option>Gas Station Attendant</option>
+                    <option>Seller</option>
+                  </optgroup>
+                  <optgroup label="Beauty & Personal Care">
+                    <option>Barber</option>
+                    <option>Hair Dresser</option>
+                    <option>Nail Care Specialist</option>
+                  </optgroup>
+                  <optgroup label="Health & Safety">
+                    <option>HSE Advisor</option>
+                  </optgroup>
+                  <optgroup label="Hospitality">
+                    <option>Laundryman</option>
+                  </optgroup>
+                  <optgroup label="Fashion & Tailoring">
+                    <option>Tailor</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
             <div>
               <label for="msg">Anything we should know</label>
-              <textarea id="msg" placeholder="Destination country, visa type, or your current stage"></textarea>
+              <textarea id="msg" placeholder="Visa type, current stage, or any other detail"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.5 6.5a7.7 7.7 0 0 0-11 0 7.6 7.6 0 0 0-1.1 9.4L4 21l5.3-1.4a7.7 7.7 0 0 0 3.7 1 7.7 7.7 0 0 0 7.7-7.7c0-2-.8-3.9-2.2-5.4Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -916,14 +959,36 @@
 
   const WHATSAPP_NUMBER = '923156239082'; // 0315 6239082 in international format
   const whatsappForm = document.getElementById('whatsappForm');
+  const serviceSelect = document.getElementById('service');
+  const gamcaFields = document.getElementById('gamcaFields');
+  const etimadFields = document.getElementById('etimadFields');
+  const navttcFields = document.getElementById('navttcFields');
+
+  function updateConditionalFields(){
+    const val = serviceSelect.value;
+    [gamcaFields, etimadFields, navttcFields].forEach(el => el.classList.remove('active'));
+    if (val === 'gamca') gamcaFields.classList.add('active');
+    if (val === 'etimad') etimadFields.classList.add('active');
+    if (val === 'navttc') navttcFields.classList.add('active');
+  }
+  serviceSelect.addEventListener('change', updateConditionalFields);
+  updateConditionalFields();
+
+  const serviceLabels = {
+    gamca: 'Gamca medical appointment',
+    etimad: 'Etimad biometric enrollment',
+    navttc: 'Navttc / Takamol skill test',
+    visa: 'Visa processing',
+    unsure: 'Not sure — guide me'
+  };
+
   whatsappForm.addEventListener('submit', function(e){
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const country = document.getElementById('country').value;
-    const service = document.getElementById('service').value;
-    const trade = document.getElementById('trade').value;
-    const tasheerCentre = document.getElementById('tasheerCentre').value;
+    const serviceVal = serviceSelect.value;
+    const service = serviceLabels[serviceVal] || serviceVal;
     const msg = document.getElementById('msg').value.trim();
 
     let text = `New enquiry from Visa Consulting.pk website\n`;
@@ -931,8 +996,22 @@
     text += `Phone: ${phone}\n`;
     text += `Country: ${country}\n`;
     text += `Service: ${service}\n`;
-    if (trade) text += `Trade / Skill test: ${trade}\n`;
-    if (tasheerCentre) text += `Preferred Tasheer centre: ${tasheerCentre}\n`;
+
+    if (serviceVal === 'gamca') {
+      const gamcaCentre = document.getElementById('gamcaCentre').value;
+      if (gamcaCentre) text += `Gamca city / centre: ${gamcaCentre}\n`;
+    }
+    if (serviceVal === 'etimad') {
+      const tasheerCentre = document.getElementById('tasheerCentre').value;
+      if (tasheerCentre) text += `Tasheer / Etimad centre: ${tasheerCentre}\n`;
+    }
+    if (serviceVal === 'navttc') {
+      const navttcCentre = document.getElementById('navttcCentre').value;
+      const trade = document.getElementById('trade').value;
+      if (navttcCentre) text += `Navttc / Takamol centre: ${navttcCentre}\n`;
+      if (trade) text += `Trade: ${trade}\n`;
+    }
+
     if (msg) text += `Details: ${msg}`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
